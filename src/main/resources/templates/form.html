@@ -15,19 +15,26 @@
                     th:object="${item}"
                     th:action="@{/submitItem}"
                 >
+                    <p style="color: tomato" th:errors="*{category}"></p>
                     <select class="select" th:field="*{category}">
                         <option style="color: blue" value="">
                             Choose Category
                         </option>
-                        <option
+                        <option value="Furniture">Furniture</option>
+                        <option value="Office Supplies">Office Supplies</option>
+                        <option value="Technology">Technology</option>
+                        <!-- <option
                             th:each="category: ${categories}"
                             th:text="${category}"
                             th:value="${category}"
                         >
                             Placeholder
-                        </option>
+                        </option> -->
                     </select>
+                    <p style="color: tomato" th:errors="*{name}"></p>
                     <input type="text" placeholder="Name" th:field="*{name}" />
+                    <p style="color: tomato" th:errors="*{price}"></p>
+                    <p style="color: tomato" th:errors="*{discount}"></p>
                     <input
                         class="half"
                         type="text"
@@ -41,6 +48,7 @@
                         th:field="*{discount}"
                     />
                     <h4>Order Date</h4>
+                    <p style="color: tomato" th:errors="*{date}"></p>
                     <input
                         type="date"
                         style="color: black"
