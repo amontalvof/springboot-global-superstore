@@ -1,6 +1,5 @@
 package com.ltp.globalsuperstore;
 
-// import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -75,10 +74,5 @@ public class Item {
     public void setDate(Date date) {
         this.date = date;
     }
-
-    // public String getFormatDate() {
-    // SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    // return formatter.format(date);
-    // }
 
 }
