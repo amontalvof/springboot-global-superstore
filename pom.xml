@@ -10,11 +10,13 @@
 	</parent>
 	<groupId>com.ltp</groupId>
 	<artifactId>global-superstore</artifactId>
+    <packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>global-superstore</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
+        <start-class>com.ltp.globalsuperstore.GlobalSuperstoreApplication</start-class>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -52,6 +54,39 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <mainClass>${start-class}</mainClass>
+                </configuration>
+                  <executions>
+                    <execution>
+                      <goals>
+                        <goal>repackage</goal>
+                      </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+	            <groupId>com.spotify</groupId>
+	            <artifactId>dockerfile-maven-plugin</artifactId>
+	            <version>1.4.10</version>
+	            <executions>
+	            	<execution>
+	            		<id>default</id>
+	            		<goals>
+	            			<goal>build</goal>
+	            		</goals>
+	            	</execution>
+	            </executions>
+	            <configuration>
+	            	<repository>montalvo/${project.name}</repository>
+	            	<tag>${project.version}</tag>
+	            	<skipDockerInfo>true</skipDockerInfo>
+	            </configuration>
+            </plugin>
 		</plugins>
 	</build>
 
