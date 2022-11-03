@@ -7,9 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class GlobalSuperstoreApplication {
 
     public static void main(String[] args) {
-        System.out.println("***********************Andy******************************");
         SpringApplication.run(GlobalSuperstoreApplication.class, args);
-        System.out.println("***********************Andy2******************************");
+        System.out.println("[46m************************************[0m");
     }
 
 }
